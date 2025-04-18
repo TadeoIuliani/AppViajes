@@ -1,0 +1,6 @@
+@AppViajesWirsolut_HostAddress = http://localhost:5134
+
+GET {{AppViajesWirsolut_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
