@@ -166,3 +166,4 @@ C:\Users\Usuario\Desktop\Test-Wirsolut\AppViajes-backend\AppViajesWirsolut\obj\D
 C:\Users\Usuario\Desktop\Test-Wirsolut\AppViajes-backend\AppViajesWirsolut\obj\Debug\net8.0\AppViajesWirsolut.pdb
 C:\Users\Usuario\Desktop\Test-Wirsolut\AppViajes-backend\AppViajesWirsolut\obj\Debug\net8.0\AppViajesWirsolut.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\Test-Wirsolut\AppViajes-backend\AppViajesWirsolut\obj\Debug\net8.0\ref\AppViajesWirsolut.dll
+C:\Users\Usuario\Desktop\Test-Wirsolut\AppViajes-backend\AppViajesWirsolut\obj\Debug\net8.0\AppViajesWirsolut.sourcelink.json

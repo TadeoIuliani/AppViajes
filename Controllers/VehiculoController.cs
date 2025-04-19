@@ -36,6 +36,23 @@ namespace AppViajesWirsolut.Controllers
             }
         }
 
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Vehiculo>> Get( int id)
+        {
+            try
+            {
+                var vehiculos = await _context.Vehiculos.FirstAsync(v => v.VehiculoId == id);
+                if (vehiculos == null)
+                {
+                    return NotFound();
+                }
+                return Ok(vehiculos);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
 
         //Post
         [HttpPost]

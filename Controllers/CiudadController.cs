@@ -33,6 +33,23 @@ namespace AppViajesWirsolut.Controllers
             }
         }
 
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Ciudad>> Get(int id)
+        {
+            try
+            {
+                var ciudades = await _context.Ciudades.FirstAsync(c => c.CiudadId == id);
+                if (ciudades == null) return NotFound();
+                return Ok(ciudades);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
         [HttpPost]
         public async Task<ActionResult<Ciudad>> Post(Ciudad ciudadNueva)
         {

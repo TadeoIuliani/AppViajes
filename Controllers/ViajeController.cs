@@ -96,19 +96,19 @@ namespace AppViajesWirsolut.Controllers
                 foreach (var viaje in viajes)
                 {
                     //un viaje con muchos climas
-                    if(viaje.Ciudad != null && viaje.Vehiculo != null) //PROBAR IF
+                    if (viaje.Ciudad != null && viaje.Vehiculo != null) //PROBAR IF
                     {
                         var climaPorCiudadDetalles = climaPorCiudad[viaje.Ciudad.IdApiCiudad];
 
                         //Comparo Fechas para saber si hay un clima para esa fecha
-                        var climaDelDia = climaPorCiudadDetalles.FirstOrDefault( c => ((Clima)c).Fecha == viaje.FechaDestino);
+                        var climaDelDia = climaPorCiudadDetalles.FirstOrDefault(c => ((Clima)c).Fecha == viaje.FechaDestino);
 
                         //Asignacion de estado de clima
-                        if(climaDelDia != null && ((Clima)climaDelDia).Estado == "Rain")
+                        if (climaDelDia != null && ((Clima)climaDelDia).Estado == "Rain")
                         {
                             viaje.CondicionClima = CondicionClima.Inestable;
                         }
-                        else if(climaDelDia != null)
+                        else if (climaDelDia != null)
                         {
                             viaje.CondicionClima = CondicionClima.CondicionesOptimas;
                         }
@@ -126,6 +126,55 @@ namespace AppViajesWirsolut.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Viaje>> Get(int id)
+        {
+            try
+            {
+                var query = _context.Viajes //Es para incluir objeto Ciudad && Vehiculo
+                     .Include(v => v.Ciudad)
+                    .Include(v => v.Vehiculo).
+                    AsQueryable();
+
+                var viaje = await query.FirstOrDefaultAsync(v => v.ViajeId == id);
+
+                // Agrupar por ciudad
+
+                if (viaje.Ciudad != null && viaje.Vehiculo != null)
+                {
+                    var idCiudad = viaje.Ciudad.IdApiCiudad;
+
+                    // Obtener climas para la ciudad del viaje
+                    var climaDetalles = await _climaService.ObtenerClimaPorCiudadIdAsync(idCiudad);
+
+                    // Buscar clima para la fecha del viaje
+                    var climaDelDia = climaDetalles.FirstOrDefault(c => c.Fecha == viaje.FechaDestino);
+
+                    // Asignar condición climática según estado
+                    if (climaDelDia != null && climaDelDia.Estado == "Rain")
+                    {
+                        viaje.CondicionClima = CondicionClima.Inestable;
+                    }
+                    else if (climaDelDia != null)
+                    {
+                        viaje.CondicionClima = CondicionClima.CondicionesOptimas;
+                    }
+                    else
+                    {
+                        viaje.CondicionClima = CondicionClima.SinInformacion;
+                    }
+                }
+                Console.WriteLine($"Viaje encontrado: {viaje.ViajeId}");
+                return Ok(viaje);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
+
 
         [HttpPost]
         public async Task<ActionResult<Viaje>> Post(Viaje viajeNuevo)

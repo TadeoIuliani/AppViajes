@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppViajesWirsolut")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4d28b80511905534aa238d2a1172b83c3bc140b")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppViajesWirsolut")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppViajesWirsolut")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
