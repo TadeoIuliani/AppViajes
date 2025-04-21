@@ -62,22 +62,24 @@ namespace AppViajesWirsolut.Controllers
                 // Filtro por estadoViaje
                 if (!string.IsNullOrEmpty(estadoViaje))
                 {
-                    if (Enum.TryParse<EstadoViaje>(estadoViaje, out var estadoEnum))
+                    if(int.TryParse(estadoViaje,out var estadoViajeParsed))
                     {
-                        query = query.Where(v => v.EstadoViaje == estadoEnum);
-                    }
-                    else
-                    {
-                        return BadRequest("Estado de viaje inválido.");
+                        if (Enum.IsDefined(typeof(EstadoViaje), estadoViajeParsed))
+                        {
+                            var estadoEnum = (EstadoViaje)estadoViajeParsed;
+                            query = query.Where(v => v.EstadoViaje == estadoEnum);
+                        }
+                        else
+                        {
+                            return BadRequest("Estado de viaje inválido.");
+                        }
                     }
                 }
-
 
                 var viajes = await query.ToListAsync();
 
                 // Agrupar por ciudad
 
-                //var ciudades = viajes.Select(v=>  v.Ciudad.IdApiCiudad).Distinct(); //Rompe por Vehiculo y Ciudad es null 400
                 var ciudades = viajes
                     .Where(v => v.Ciudad != null)
                     .Select(v => v.Ciudad.IdApiCiudad)

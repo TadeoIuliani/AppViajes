@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace AppViajesWirsolut.Models
 {
-    public enum EstadoViaje { Programado, Cancelado, Reprogramado}
+    public enum EstadoViaje { Programado, Cancelado, Reprogramado, Finalizado, EnCurso}
     public enum CondicionClima { Inestable, CondicionesOptimas, SinInformacion}
     public class Viaje
     {
