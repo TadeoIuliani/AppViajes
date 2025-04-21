@@ -35,36 +35,6 @@ Este backend se conecta además con un frontend desarrollado en React llamado [A
 
 ---
 
-## 🧱 Estructura del proyecto
-
-AppViajesWirsolut/ 
-│ 
-├── Connected Services/ 
-├── Dependencias/ # Paquetes y librerías NuGet 
-├── Properties/ # Configuraciones del proyecto 
-│ 
-├── Context/ # Contexto de la base de datos (DbContext) 
-│ └── AppDbContext.cs 
-│ 
-├── Controllers/ # Controladores de la API 
-│ ├── ViajesController.cs 
-│ ├── VehiculosController.cs 
-│ └── CiudadesController.cs 
-│
-├── Migrations/ # Archivos de migración de Entity Framework 
-│ 
-├── Models/ # Entidades del dominio 
-│ ├── Viaje.cs 
-│ ├── Vehiculo.cs 
-│ └── Ciudad.cs 
-│ 
-├── Services/ # Servicios de lógica de negocio 
-│ └── ClimaService.cs │ 
-├── appsettings.json # Configuración general del proyecto 
-├── AppViajesWirsolut.http # Archivo de pruebas HTTP 
-└── Program.cs # Punto de entrada de la aplicación
-
-
 
 ---
 
