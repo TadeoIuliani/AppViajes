@@ -3,7 +3,7 @@
 Backend del proyecto **AppViajes**, desarrollado con ASP.NET y Entity Framework, que gestiona vehículos, viajes y ciudades. 
 Permite aplicar viajes a destinos con un límite máximo de 10 días y obtiene el estado climático del destino consumiendo la API externa de OpenWeatherMap.
 
-Este backend se conecta además con un frontend desarrollado en React llamado [AppViajesReact](https://github.com/tuusuario/AppViajesReact).
+Este backend se conecta además con un frontend desarrollado en React llamado [AppViajesReact](https://github.com/TadeoIuliani/Vista_test_wirsolut).
 ---
 
 ## 🚀 Tecnologías utilizadas
@@ -72,7 +72,7 @@ El clima se consulta automáticamente desde el backend.
 
 
 ## 🛠 Endpoints disponibles:
-Swagger disponible en https://localhost:5001/swagger si está habilitado.
+Swagger disponible en https://localhost:5134/swagger si está habilitado.
 
 
 
