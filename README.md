@@ -35,9 +35,6 @@ Este backend se conecta además con un frontend desarrollado en React llamado [A
 
 ---
 
-
----
-
 ## ⚙️ Instalación y ejecución
 
 ### 1. Cloná el repositorio
