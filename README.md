@@ -63,10 +63,6 @@ AppViajesWirsolut/
 ├── appsettings.json # Configuración general del proyecto 
 ├── AppViajesWirsolut.http # Archivo de pruebas HTTP 
 └── Program.cs # Punto de entrada de la aplicación
-yaml
-Copiar
-Editar
-
 
 
 
@@ -108,7 +104,7 @@ URL: https://openweathermap.org/api/forecast30
 El clima se consulta automáticamente desde el backend.
 
 
-🛠 Endpoints disponibles:
+## 🛠 Endpoints disponibles:
 Swagger disponible en https://localhost:5001/swagger si está habilitado.
 
 
